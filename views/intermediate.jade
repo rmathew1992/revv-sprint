@@ -2,12 +2,20 @@ extends layout
 
 block content
   h1= title
-  h4 Choose an established goal:
+  h4 Choose a preset goal:
+
+  form(id="preset_goal", action='/newgoal', method='post')
+    select(name='presetgoal') 
+      option(value='Apply to Grad School') Apply to Grad School
+      option(value='Get a Drivers License') Get a Drivers License
+      option(value='Find a Job') Get a Job
+      option(value='Get in Shape') Get in Shape
+    div(class="control-group")
+      input(class="btn btn-primary", type="submit", value="Submit", style='')
 
   h2 Or
 
   h4 Make your own goal:
 
-  form(id="get_tweets", action='/newgoal', method='post')
-    input(class="btn btn-large btn-primary", type="submit", value="New Goal", style='')
-    //- button(id='newgoal') New goal
+  form(id="new_goal", action='/newgoal', method='post')
+    input(class="btn btn-primary", type="submit", value="New Goal", style='')

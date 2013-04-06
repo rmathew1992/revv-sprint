@@ -8,7 +8,7 @@ exports.index = function(req, res){
 };
 
 exports.intermediate = function(req, res){
-  res.render('intermediate', { title: 'Choose an option!' });
+  res.render('intermediate', { title: 'Add a goal!' });
 };
 
 exports.newgoal = function(req, res){
