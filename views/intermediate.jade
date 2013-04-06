@@ -2,6 +2,12 @@ extends layout
 
 block content
   h1= title
-  p #{title}
+  h4 Choose an established goal:
 
-  button(id='newgoal') New goal
+  h2 Or
+
+  h4 Make your own goal:
+
+  form(id="get_tweets", action='/newgoal', method='post')
+    input(class="btn btn-large btn-primary", type="submit", value="New Goal", style='')
+    //- button(id='newgoal') New goal

@@ -31,7 +31,7 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/intermediate', routes.intermediate);
-app.get('/newgoal', routes.newgoal);
+app.post('/newgoal', routes.newgoal);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
