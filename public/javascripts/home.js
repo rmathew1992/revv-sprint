@@ -1,5 +1,6 @@
 $(function(){
 	$(document).ready(function() {
+    $("#submittask").hide();
 		$("#newtask").click(function(event){
 			console.log("Add new task")
 			event.preventDefault(); // cancel default behavior
@@ -17,6 +18,9 @@ $(function(){
   			$("<input type='text' value='' />")
      		.attr("name", "Duration")
      		.appendTo(".task");
+        $("#submittask").show();
+        $("#newtask").hide();
+
      	});
 	});
 });
