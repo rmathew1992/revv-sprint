@@ -8,13 +8,14 @@ block content
     input(type='text', name='Goal')  
     br
     br
-    h4 Task
-    input(type='text', name='Task') 
-    br
-    h4 Task Duration
-    input(type='text', name='Duration')
-    br
-    button(class="btn", type='newtask') Add a new task
+    div(class="task")
+      h4 Task
+      input(type='text', name='Task') 
+      br
+      h4 Task Duration
+      input(type='text', name='Duration')
+      br 
+    button(id="newtask", class="btn", type='newtask') Add a new task
     br
     br
     h4 Daily Activities

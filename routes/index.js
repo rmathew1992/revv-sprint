@@ -19,7 +19,7 @@ exports.intermediate = function(req, res){
 
 exports.newgoal = function(req, res){
   var goal_info = req.body;
-
+  console.log("form submitted");
   // form has been submitted (as opposed to "new goal" button pressed)
   if (Object.keys(goal_info).length > 0) {
 
