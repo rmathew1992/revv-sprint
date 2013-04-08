@@ -4,7 +4,7 @@ $(function(){
 
     $('#calendar').DatePicker(empty);
 
-    $("#submittask").click(function(event){
+    $("#newtask").click(function(event){
       console.log("Add new task")
       event.preventDefault(); // cancel default behavior
       // append task and duration inputs at end of task div
