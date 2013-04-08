@@ -3,7 +3,8 @@ extends layout
 block content
   h1= title
   
-  form(id="create_goal", action='/savegoal', method='post')
+  div(class="inline", style="display:inline-block", style="display:inline-block")
+  form(id="create_goal", action='/savegoal', method='post', style="display:inline-block")
     h4 Goal
     input(type='text', name='Goal')  
     br
@@ -59,5 +60,7 @@ block content
     br
     br
     input(class="btn btn-large btn-primary", type='submit', value='Submit')
+  form(id="cancel", action='/intermediate', method='get', style="display:inline-block; margin-left: -550px")
+    input(class="btn btn-large", type='submit', value='Cancel')
       
 
