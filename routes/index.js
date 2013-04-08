@@ -10,7 +10,21 @@ var Goal = models.Goal;
 var Task = models.Task;
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Life Goal Planner' });
+  // get goals from db
+  var exists =  Goal.find({}).populate('tasks').exec(function (err, docs) {
+    // console.log(docs);
+
+    // at least one goal already created
+    if (docs.length>0) {
+
+      // extract goal
+      for (var i in docs){
+        var goal_dict = docs[i];
+        var goal = docs.goal;
+      }
+    }
+    res.render('index', { goals: docs, title: 'Life Goal Planner' });
+  });
 };
 
 exports.intermediate = function(req, res){
@@ -51,7 +65,7 @@ exports.savegoal = function(req, res){
         return console.log(err);
     });
   }
-  res.render('index', { title: 'Add a goal!' });
+  res.redirect('/');
 }
 
 exports.newgoal = function(req, res){
