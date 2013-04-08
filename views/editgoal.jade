@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   
-  div(class="inline", style="display:inline-block", style="display:inline-block")
+  div(class="inline", style="display:inline-block")
   form(id="create_goal", action='/savegoal', method='post', style="display:inline-block")
     h4 Goal
     input(type='text', name='Goal', placeholder='#{goal}')  
@@ -20,7 +20,6 @@ block content
    
 
     button(id="newtask", class="btn", type='newtask') Add task
-    button(id="calendar", class="btn", type='newtask') Calendar
     br
     br
     h4 Daily Activities
@@ -61,7 +60,7 @@ block content
     br
     br
     input(class="btn btn-large btn-primary", type='submit', value='Submit')
-  form(id="cancel", action='/intermediate', method='get', style="display:inline-block; margin-left: -550px")
+  form(id="cancel", action='/', method='get', style="display:inline-block; margin-left: -550px")
     input(class="btn btn-large", type='submit', value='Cancel')
       
 

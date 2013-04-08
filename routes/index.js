@@ -10,7 +10,7 @@ var Goal = models.Goal;
 var Task = models.Task;
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Life Goal Planner' });
 };
 
 exports.intermediate = function(req, res){
@@ -51,7 +51,7 @@ exports.savegoal = function(req, res){
         return console.log(err);
     });
   }
-  res.render('intermediate', { title: 'Add a goal!' });
+  res.render('index', { title: 'Add a goal!' });
 }
 
 exports.newgoal = function(req, res){
