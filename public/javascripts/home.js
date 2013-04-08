@@ -2,8 +2,6 @@ $(function(){
 	$(document).ready(function() {
     var empty= {};
 
-    $('#calendar').DatePicker(empty);
-
     $("#newtask").click(function(event){
       console.log("Add new task")
       event.preventDefault(); // cancel default behavior
@@ -22,5 +20,8 @@ $(function(){
          .attr("name", "Duration")
          .appendTo(".task");
       });
+
+    
+    $('#calendar').DatePicker(empty);
 	});
 });
