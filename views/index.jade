@@ -21,11 +21,20 @@ block content
   div(class="inline", style="display:inline-block; vertical-align:text-top")
     div(class="goals", style="display:inline-block; vertical-align:text-top")
       h2 Today's Reminders
-      each info, goal in goals
-        p #{info.daily}
+      ul
+        each info, goal in goals
+          - if (info.daily !== ''){
+            li
+              h4 #{info.daily}
+          -}
+      br
       h2 Goals
+      ul
+        each info, goal in goals
+          - if (info.goal !== ''){
+            li
+              h3 #{info.goal}
+          -}
       form(id="cancel", action='/intermediate', method='get')
         input(class="btn btn-primary", type='submit', value='Add a Goal')
-      each info, goal in goals 
-        p #{info.goal}
     div(id="calendar", style="display:inline-block; vertical-align:text-top; margin-left: 100px")

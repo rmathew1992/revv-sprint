@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  h4 Choose a preset goal:
+  h3 Choose a preset goal:
 
   form(id="preset_goal", action='/presetgoal', method='post')
     select(name='presetgoal') 
@@ -14,7 +14,7 @@ block content
 
   h2 Or
 
-  h4 Make your own goal:
+  h3 Make your own goal:
 
   form(id="new_goal", action='/newgoal', method='post')
     input(class="btn btn-primary", type="submit", value="New Goal", style='')
