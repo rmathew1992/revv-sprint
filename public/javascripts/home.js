@@ -1,6 +1,6 @@
 $(function(){
 	$(document).ready(function() {
-    var empty= {};
+    console.log("ready");
 
     $("#newtask").click(function(event){
       console.log("Add new task")
@@ -21,7 +21,9 @@ $(function(){
          .appendTo(".task");
       });
 
-    
-    $('#calendar').DatePicker(empty);
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+    })
+
 	});
 });

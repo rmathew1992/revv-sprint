@@ -1,5 +1,21 @@
 extends layout
 
+//- block heading
+//-   link(rel='stylesheet', type='text/css', href='/stylesheets/fullcalendar.css')
+//-   script(type='text/javascript', src='/javascripts/jquery.js')
+//-   script(type='text/javascript', src='/javascripts/fullcalendar.js')
+//-   script(type='text/javascript')
+//-     $(document).ready(function() {
+//-       console.log("page loaded")
+
+//-       $('#calendar').fullCalendar({
+//-         // put your options and callbacks here
+//-         dayClick: function() {
+//-           alert('a day has been clicked!');
+//-         }
+//-       })
+//-     });
+
 block content
   h1= title
   div(class="inline", style="display:inline-block; vertical-align:text-top")
@@ -8,6 +24,6 @@ block content
       h2 Goals
       form(id="cancel", action='/intermediate', method='get')
         input(class="btn btn-primary", type='submit', value='Add a Goal')
-    div(class="calendar", style="display:inline-block; vertical-align:text-top; margin-left: 100px")
+    div(id="calendar", style="display:inline-block; vertical-align:text-top; margin-left: 100px")
       h2 Calendar
-      button(id="calendar", class="btn btn-primary", type='newtask') Calendar
+      //- button(id="calendar", class="btn btn-primary", type='newtask') Calendar
