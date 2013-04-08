@@ -5,16 +5,17 @@ block content
   
   form(id="create_goal", action='/savegoal', method='post')
     h4 Goal
-    input(type='text', name='Goal')  
+    input(type='text', name='Goal', placeholder='#{goal}')  
     br
     br
     div(class="task")
-      h4 Task
-      input(type='text', name='Task') 
-      br
-      h4 Task Duration
-      input(type='text', name='Duration')
-      br 
+      each duration, task in tasks 
+        h4 Task
+        input(type='text', name='Task', placeholder='#{task}') 
+        br
+        h4 Task Duration
+        input(type='text', name='Duration', placeholder='#{duration}')
+        br 
    
 
     button(id="newtask", class="btn", type='newtask') Add task
@@ -22,7 +23,7 @@ block content
     br
     br
     h4 Daily Activities
-    textarea(id='daily', name='Daily')
+    textarea(id='daily', name='Daily', placeholder='#{Daily}')
     br
     br
     h4 Start Date
