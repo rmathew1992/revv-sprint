@@ -6,16 +6,16 @@ block content
   div(class="inline", style="display:inline-block")
   form(id="create_goal", action='/savegoal', method='post', style="display:inline-block")
     h4 Goal
-    input(type='text', name='Goal', placeholder='#{goal}')  
+    input(type='text', name='Goal', value='#{goal}')  
     br
     br
     div(class="task")
       each duration, task in tasks 
         h4 Task
-        input(type='text', name='Task', placeholder='#{task}') 
+        input(type='text', name='Task', value='#{task}') 
         br
         h4 Task Duration
-        input(type='text', name='Duration', placeholder='#{duration}')
+        input(type='text', name='Duration', value='#{duration}')
         br 
    
 
@@ -23,7 +23,7 @@ block content
     br
     br
     h4 Daily Activities
-    textarea(id='daily', name='Daily', placeholder='#{Daily}', rows='5')
+    textarea(id='daily', name='Daily', rows='5') #{Daily}
     br
     br
     h4 Start Date
