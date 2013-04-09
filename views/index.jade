@@ -9,10 +9,23 @@ block heading
       console.log("page loaded")
 
       $('#calendar').fullCalendar({
-        // put your options and callbacks here
-        dayClick: function() {
-          alert('a day has been clicked!');
+         events: [
+        {
+            title  : 'event1',
+            start  : '2013-01-01'
+        },
+        {
+            title  : 'event2',
+            start  : '2010-01-05',
+            end    : '2013-01-07'
+        },
+        {
+            title  : 'event3',
+            start  : '2013-01-09 12:30:00',
+            allDay : false 
         }
+    
+      ]
       })
     });
 
