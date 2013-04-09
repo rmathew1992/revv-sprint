@@ -66,9 +66,9 @@ exports.savegoal = function(req, res){
     new_goal.save(function (err) {
       if (err)
         return console.log(err);
+      res.redirect('/');
     });
   }
-  res.redirect('/');
 }
 
 exports.newgoal = function(req, res){
