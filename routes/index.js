@@ -12,7 +12,7 @@ var Task = models.Task;
 exports.index = function(req, res){
   // get goals from db
   var exists =  Goal.find({}).populate('tasks').exec(function (err, docs) {
-    // console.log(docs);
+    //console.log(docs);
 
     // at least one goal already created
     if (docs.length>0) {
@@ -20,7 +20,10 @@ exports.index = function(req, res){
       // extract goal
       for (var i in docs){
         var goal_dict = docs[i];
+        console.log(goal_dict);
         var goal = docs.goal;
+        console.log(docs.goal_info);
+        
       }
     }
     res.render('index', { goals: docs, title: 'Life Goal Planner' });

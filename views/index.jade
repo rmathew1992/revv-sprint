@@ -11,17 +11,17 @@ block heading
       $('#calendar').fullCalendar({
          events: [
         {
-            title  : 'event1',
-            start  : '2013-01-01'
+            title  : 'Sample event 1',
+            start  : '2013-04-01'
         },
         {
-            title  : 'event2',
-            start  : '2010-01-05',
-            end    : '2013-01-07'
+            title  : 'Sample event 2',
+            start  : '2013-04-05',
+            end    : '2013-04-06'
         },
         {
-            title  : 'event3',
-            start  : '2013-01-09 12:30:00',
+            title  : 'Sample event 3',
+            start  : '2013-04-09 12:30:00',
             allDay : false 
         }
     
@@ -47,7 +47,9 @@ block content
           - if (info.goal !== ''){
             li
               h3 #{info.goal}
+              h3 #{info.tasks}
           -}
       form(id="cancel", action='/intermediate', method='get')
         input(class="btn btn-primary", type='submit', value='Add a Goal')
     div(id="calendar", style="display:inline-block; vertical-align:text-top; margin-left: 100px")
+
