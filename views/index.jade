@@ -5,7 +5,7 @@ block heading
   script(type='text/javascript', src='/javascripts/jquery.js')
   script(type='text/javascript', src='/javascripts/fullcalendar.js')
   script(type='text/javascript')
-    $(document).ready(function() {
+    function init() {
       console.log("page loaded")
 
       $('#calendar').fullCalendar({
@@ -27,7 +27,7 @@ block heading
     
       ]
       })
-    });
+    };
 
 block content
   h1= title
@@ -39,6 +39,7 @@ block content
           - if (info.daily !== ''){
             li
               h4 #{info.daily}
+              
           -}
       br
       h2 Goals
@@ -47,9 +48,16 @@ block content
           - if (info.goal !== ''){
             li
               h3 #{info.goal}
-              //- h3 #{info.tasks}
+              h3 #{info.tasks[1].duration}
+              script(type='text/javascript')
+               g=0;
+               for (var i=0;i<2;i++){ 
+                console.log('#{info.tasks[0].duration}')
+               }
           -}
       form(id="cancel", action='/intermediate', method='get')
         input(class="btn btn-primary", type='submit', value='Add a Goal')
     div(id="calendar", style="display:inline-block; vertical-align:text-top; margin-left: 100px")
+    script(type='text/javascript');
+     init();
 
