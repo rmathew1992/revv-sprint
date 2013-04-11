@@ -53,19 +53,19 @@ block content
       each task in info.tasks
         script(type='text/javascript');
           var task = '#{task.task}';
-          var duration = '#{task.duration}'
+          var duration = parseInt('#{task.duration}');
           if (task!='' && task.length > 1) {
             console.log(task, duration);
             //- TODO: replace 1 in (day+1)) and day += 1 with duration
             events.push({
               title  : task,
               start  : '2013-04-'+day.toString(),
-              end  : '2013-04-'+(day+1).toString() 
+              end  : '2013-04-'+(day+duration-1).toString() 
             });
             //- add a time by including time in start and setting allDay to false
             //- start  : '2013-04-09 12:30:00',
             //- allDay : false 
-            day += 1;
+            day += duration;
           }
    
     script(type='text/javascript');

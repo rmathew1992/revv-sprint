@@ -36,7 +36,7 @@ exports.intermediate = function(req, res){
 
 exports.savegoal = function(req, res){
   var goal_info = req.body;
-  console.log("goal_info", goal_info);
+  // console.log("goal_info", goal_info);
   if (Object.keys(goal_info).length > 1) {
     console.log("form submitted");
     // save goal info to mongodb
@@ -51,14 +51,25 @@ exports.savegoal = function(req, res){
     }
     else {
       var tasks = [];
-      for (var i in goal_info.Task) {
-        var task = new Task({ task: goal_info.Task[i], duration: goal_info.Duration[i]})
-        task.save(function (err) {
-          if (err)
-            return console.log(err);
-        });
-        tasks.push(task);
+      console.log("task", goal_info.Task);
+      if (goal_info.Task instanceof Array) {
+        for (var i in goal_info.Task) {
+          var task = new Task({ task: goal_info.Task[i], duration: goal_info.Duration[i]})
+          task.save(function (err) {
+            if (err)
+              return console.log(err);
+          });
+          tasks.push(task);
+        }
+      } else {
+        var task = new Task({ task: goal_info.Task, duration: goal_info.Duration})
+          task.save(function (err) {
+            if (err)
+              return console.log(err);
+          });
+          tasks.push(task);
       }
+      
     }
     var start = [goal_info.startdateday, goal_info.startdatemonth, goal_info.startdateyear];
     var end = [goal_info.enddateday, goal_info.enddatemonth, goal_info.enddateyear];
@@ -82,37 +93,30 @@ exports.presetgoal = function(req, res){
   console.log("presetgoal", goal);
   var tasks = {};
   if (goal=='Apply to Grad School'){
-    tasks['Register for the GRE'] = '10 minutes';
-    tasks['Study for the GRE'] = '1 month';
-    tasks['Take the GRE'] = '5 hours';
-    tasks['Ask for Recommendation Letters'] = '1 hour';
-    tasks['Make a CV'] = '1 week';
-    tasks['Write the Statement of Purpose'] = '1 month';
-    tasks['Order GRE Scores'] = '30 minutes';
-    tasks['Order Transcripts'] = '2 hours';
-    tasks['Submit Applications'] = '3 weeks';
+    tasks['Register for the GRE'] = '1';
+    tasks['Study for the GRE'] = '30';
+    tasks['Take the GRE'] = '1';
+    tasks['Ask for Recommendation Letters'] = '1';
+    tasks['Make a CV'] = '7';
+    tasks['Write the Statement of Purpose'] = '30';
+    tasks['Order GRE Scores'] = '1';
+    tasks['Order Transcripts'] = '1';
+    tasks['Submit Applications'] = '21';
     var Daily = 'Study vocabulary, read challenging articles, research schools and professors';
   }  
   else if (goal=='Get a Drivers License'){
-    tasks['Take online course'] = '1 month';
-    tasks['Take the permit test'] = '1 hour';
-    tasks['Take driving class'] = '6 hours';
-    tasks['Practice driving'] = '50 hours';
-    tasks['Taking driving test'] = '1 hour';
+    tasks['Take online course'] = '30';
+    tasks['Take the permit test'] = '1';
+    tasks['Take driving class'] = '21';
+    tasks['Practice driving'] = '180';
+    tasks['Taking driving test'] = '1';
     var Daily = 'Watch parents drive, study for permit test, practice, practice, practice!';
   }
   else if (goal=='Find a Job'){
-    tasks['Make a resume'] = '1 week';
-    tasks['Write cover letters'] = '1 day';
-    tasks['Submit online applications'] = '2 hours';
-    tasks['Go to a career fair'] = '1 day';
-    var Daily = 'Research companies with job openings, follow up with interviewers';
-  }
-  else if (goal=='Find a Job'){
-    tasks['Make a resume'] = '1 week';
-    tasks['Write cover letters'] = '1 day';
-    tasks['Submit online applications'] = '2 hours';
-    tasks['Go to a career fair'] = '1 day';
+    tasks['Make a resume'] = '7';
+    tasks['Write cover letters'] = '5';
+    tasks['Submit online applications'] = '2';
+    tasks['Go to a career fair'] = '1';
     var Daily = 'Research companies with job openings, follow up with interviewers';
   }
   res.render('editgoal', { goal:goal, tasks:tasks, Daily:Daily, title:'Make a New goal!' });
