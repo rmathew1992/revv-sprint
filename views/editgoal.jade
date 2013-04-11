@@ -7,12 +7,12 @@ block content
     div(class="task")
       each duration, task in tasks 
         div(id='individualtask')
-        h4 Task
-        input(type='text', name='Task', value='#{task}') 
-        br
-        h4 Task Duration
-        input(type='text', name='Duration', value='#{duration}')
-        br 
+         h4 Task
+         input(type='text', name='Task', value='#{task}') 
+         br
+         h4 Task Duration
+         input(type='text', name='Duration', value='#{duration}')
+         br 
       button(id="newtask", class="btn", type='newtask') Add task
     br
     br

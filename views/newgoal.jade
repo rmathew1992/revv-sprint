@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  
+  div(id='title')
+    h1= title
   div(class="inline", style="display:inline-block")
-  form(class='form-horizontal well',id="create_goal", action='/savegoal', method='post', style="display:inline-block")
+    form(class='form-horizontal well',id="create_goal", action='/savegoal', method='post', style="display:inline-block")
     h4 Goal
     input(type='text', name='Goal')  
     br
@@ -16,8 +16,9 @@ block content
       h4 Task Duration
       input(type='text', name='Duration')
       br 
-   
-    br
+      br
+ 
+
     button(id="newtask", class="btn", type='newtask') Add task
     br
     br

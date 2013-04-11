@@ -2,27 +2,22 @@ doctype 5
 html
   head
     title= title
+
+    script(type='text/javascript', src='/javascripts/jquery.js')
+    script(src='http://code.jquery.com/jquery.js')
+    script(src='/javascripts/home.js')
+    script(src='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js')
+    script(type='text/javascript', src='/javascripts/fullcalendar.js')
+
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href="http://bootswatch.com/cyborg/bootstrap.min.css", rel="stylesheet")
     link(href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css", rel="stylesheet")
-    
+    link(rel='stylesheet', href='/fonts/bebas-neue-fontfacekit/stylesheet.css')
+    link(rel='stylesheet', href='/fonts/GeoSansLight/stylesheet.css')
     link(rel='stylesheet', type='text/css', href='/stylesheets/fullcalendar.css')
-    script(type='text/javascript', src='/javascripts/jquery.js')
-    script(type='text/javascript', src='/javascripts/fullcalendar.js')
-    
-
-    script(src='http://code.jquery.com/jquery.js')
-    script(src='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js')
-    script(src='/javascripts/home.js')
-
-    style
-      body {
-        height:100%;
-        font-family:helvetica;
-        padding-top: 10px;
-        }
 
     block heading
 
   body
+  
     block content

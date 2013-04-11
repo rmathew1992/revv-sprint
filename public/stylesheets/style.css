@@ -1,6 +1,10 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background:url('/images/blackorchid.png')  !important;
+  font-family: 'GeosansLightRegular' !important; 
+  color:white !important;
+  z-index: 10;
 }
 
 a {
@@ -18,11 +22,13 @@ a {
 	border-radius: 12px
 }
 
-#individualtask{
-	border-color: blue;
+#individualtask{	
 	border-style:solid;
-	border-left-color: blue;
-	border-right-color:blue;  
+	padding-left: 50px;
+	padding-right: 300px;
+	margin: 60px;
+	border-radius: 20px;
+	background-color:rgba(220 220 220 0.5) !important; 
 }
 #second{
 	position: fixed;
@@ -30,8 +36,10 @@ a {
 	top:120px;
 	border-color: white;
 	border-style: solid;
+	border-radius: 20px;
+	padding-left: 20px;
+	padding-right:20px;
 }
-
 
 .task{
 	float: right;
@@ -44,6 +52,21 @@ h1{
 	text-align: center;
 	margin-left:auto;
 	margin-right:auto;
-	width:70%;
-	background-color:#b0e0e6;
+	width:300px;
+    font-family: 'GeosansLightRegular' !important; 
+}
+#box{
+	border: 5px solid rgba(255,255,255,1); 
+	color: white; 
+	width: 300px; 
+	text-align: center; 
+	border-radius: 25px; 
+	margin-left: 500px; 
+	margin-top: 50px; 
+	padding: 30px; 
+	padding-bottom: 40px; 
+	background-color: #21161A
+}
+#title{
+	position: fixed;
 }
