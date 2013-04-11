@@ -5,27 +5,11 @@ block heading
   script(type='text/javascript', src='/javascripts/jquery.js')
   script(type='text/javascript', src='/javascripts/fullcalendar.js')
   script(type='text/javascript')
-    function init() {
+    function init(events) {
       console.log("page loaded")
 
       $('#calendar').fullCalendar({
-         events: [
-        {
-            title  : 'Sample event 1',
-            start  : '2013-04-01'
-        },
-        {
-            title  : 'Sample event 2',
-            start  : '2013-04-05',
-            end    : '2013-04-06'
-        },
-        {
-            title  : 'Sample event 3',
-            start  : '2013-04-09 12:30:00',
-            allDay : false 
-        }
-    
-      ]
+         events: events
       })
     };
 
@@ -48,22 +32,56 @@ block content
           - if (info.goal !== ''){
             li
               h3 #{info.goal}
-              h3 #{info.tasks[0].duration}
-              script(type='text/javascript')
-               task_array=[];
-               task_array[0]='#{info.tasks.duration}';
-               
+              //- h3 #{info.tasks[0].duration}
+              //- script(type='text/javascript')
+              //-  task_array=[];
+              //-  task_array[0]='#{info.tasks.duration}';
+              //-  var task = '#{info}';
 
-               for (var i=0;i<2;i++){
-                console.log(i);
-                console.log('#{info.tasks[0].duration}'); 
-               }
+              //-  for (var i=0;i<2;i++){
+              //-   console.log(i);
+              //-   console.log('#{info.tasks[0].duration}'); 
+              //-  }
           -}
       form(id="cancel", action='/intermediate', method='get')
         input(class="btn btn-primary", type='submit', value='Add a Goal')
     div(id="calendar")
     script(type='text/javascript');
-     init();
+      var events = [];
+    each info, goal in goals
+      each task in info.tasks
+        script(type='text/javascript');
+          var task = '#{task.task}';
+          var duration = '#{task.duration}'
+          if (task!='' && task.length > 1) {
+            console.log(task, duration);
+            events.push({
+              title  : task,
+              start  : '2013-04-12'
+            });
+          }
+    //- testing adding events to the calendar: start for one day, start/end multiple days, all day false to add a time
+    //- script(type='text/javascript');
+    //-   var events = [];
+    //-   for (var i in [1,2]) {
+    //-     events.push(
+    //-       {
+    //-         title  : 'Sample event 1',
+    //-         start  : '2013-04-01'
+    //-       },
+    //-       {
+    //-         title  : 'Sample event 2',
+    //-         start  : '2013-04-05',
+    //-         end    : '2013-04-06'
+    //-       },
+    //-       {
+    //-         title  : 'Sample event 3',
+    //-         start  : '2013-04-09 12:30:00',
+    //-         allDay : false 
+    //-       });
+    //-   }
+    script(type='text/javascript');
+      init(events);
 
 
 
