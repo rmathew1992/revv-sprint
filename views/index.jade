@@ -48,11 +48,15 @@ block content
           - if (info.goal !== ''){
             li
               h3 #{info.goal}
-              h3 #{info.tasks[1].duration}
+              h3 #{info.tasks[0].duration}
               script(type='text/javascript')
-               g=0;
-               for (var i=0;i<2;i++){ 
-                console.log('#{info.tasks[0].duration}')
+               task_array=[];
+               task_array[0]='#{info.tasks.duration}';
+               
+
+               for (var i=0;i<2;i++){
+                console.log(i);
+                console.log('#{info.tasks[0].duration}'); 
                }
           -}
       form(id="cancel", action='/intermediate', method='get')
