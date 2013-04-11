@@ -51,7 +51,6 @@ exports.savegoal = function(req, res){
     }
     else {
       var tasks = [];
-      console.log("task", goal_info.Task);
       if (goal_info.Task instanceof Array) {
         for (var i in goal_info.Task) {
           var task = new Task({ task: goal_info.Task[i], duration: goal_info.Duration[i]})
