@@ -114,9 +114,9 @@ exports.presetgoal = function(req, res){
   }
   else if (goal=='Find a Job'){
     tasks['Make a resume'] = '7';
+    tasks['Go to a career fair'] = '1';
     tasks['Write cover letters'] = '5';
     tasks['Submit online applications'] = '2';
-    tasks['Go to a career fair'] = '1';
     tasks['Interviews'] = '30';
     var Daily = 'Research companies with job openings, follow up with interviewers';
   }
