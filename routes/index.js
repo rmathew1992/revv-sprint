@@ -26,7 +26,7 @@ exports.index = function(req, res){
         
       }
     }
-    res.render('index', { goals: docs, title: 'Life Goal Planner' });
+    res.render('index', { goals: docs, title: 'GoalPlanner' });
   });
 };
 
