@@ -11,15 +11,19 @@ a {
   color: #00B7FF;
 }
 #calendar{
-	font-size: 15px;
+	float: right;
+	position:absolute;
+ 	top:120px;
+ 	right:190px;
+ 	font-size: 15px;
 	display:inline-block; 
-	float:right;
 	vertical-align:text-top; 
-	margin-left: 200px;
 	color: rgb(0, 0, 0);
 	background-color: rgb(147, 147, 160);
 	width: 700px;
-	border-radius: 12px
+	border-radius: 12px;
+	z-index: 30;
+
 }
 
 #individualtask{	
@@ -28,7 +32,10 @@ a {
 	padding-right: 300px;
 	margin: 60px;
 	border-radius: 20px;
-	background-color:rgba(220 220 220 0.5) !important; 
+	background-color: #21161A; 
+	box-shadow:8px 8px 8px #100;
+	z-index: 100;
+
 }
 #second{
 	position: fixed;
@@ -39,22 +46,20 @@ a {
 	border-radius: 20px;
 	padding-left: 20px;
 	padding-right:20px;
+	background-color: #21161A;
+	text-align: center;
+	box-shadow:8px 8px 8px #100;
+	padding-bottom:20px;
 }
 
 .task{
 	float: right;
 	position:absolute;
  	top:140px;
- 	right:500px;
- 	width:200px;
+ 	right:200px;
+ 	width:500px;
 }
-h1{
-	text-align: center;
-	margin-left:auto;
-	margin-right:auto;
-	width:300px;
-    font-family: 'GeosansLightRegular' !important; 
-}
+
 #box{
 	border: 5px solid rgba(255,255,255,1); 
 	color: white; 
@@ -65,8 +70,94 @@ h1{
 	margin-top: 50px; 
 	padding: 30px; 
 	padding-bottom: 40px; 
-	background-color: #21161A
+	background-color: #21161A;
+	box-shadow:8px 8px 8px #100;
+}
+#tyingtitle{
+	position: fixed;
+	padding-left: 220px;
+	z-index: 10;
 }
 #title{
 	position: fixed;
+	padding-left: 220px;
+	z-index: 10;
+}
+#task2{
+	border: white solid 5px;
+	position: fixed;
+	float: right;
+	position:absolute;
+ 	
+	padding-left: 50px;
+	padding-right: 300px;
+	padding-bottom: 20px;
+	width:0px;
+	margin: 60px;
+	border-radius: 20px;
+	background-color: #21161A;
+	box-shadow:8px 8px 8px #100;
+}
+#second2{
+	position: fixed;
+	left:50px;
+	top:120px;
+	border-color: white;
+	border-style: solid;
+	border-radius: 20px;
+	padding-left: 20px;
+	padding-right:20px;
+	text-align: center;	
+	padding-bottom:20px;
+	background-color: #21161A;
+	box-shadow:8px 8px 8px #100;
+
+}
+.btn btn-primary:hover{
+	box-shadow:  -5px -5px 5px #888;
+};
+.btn:hover{
+	box-shadow:  -5px -5px 5px #888;
+}
+#reminders{
+	border-color: white;
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 20px;
+	padding-left: 20px;
+	padding-right:20px;
+	background-color: #21161A;
+	box-shadow:8px 8px 8px #100;
+	width:400px;
+}
+#goal{
+	border-color: white;
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 20px;
+	padding-left: 20px;
+	padding-right:20px;
+	background-color: #21161A;
+	box-shadow:8px 8px 8px #100;
+	width:400px;
+	margin-top: 30px;	
+}
+#sillybutton{
+	padding-left: 150px;
+}
+.task{
+	border-style:solid;
+	top: 60px;
+	padding-left: 50px;
+	padding-bottom:20px; 
+	width:300px;
+	margin: 60px;
+	border-radius: 20px;
+	background-color: #21161A; 
+	box-shadow:8px 8px 8px #100;
+}
+
+.task2{
+	margin-left: 800px;
+	width:0px;
 }

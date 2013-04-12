@@ -41,6 +41,7 @@ exports.savegoal = function(req, res){
     console.log("form submitted");
     // save goal info to mongodb
     var goal = goal_info.Goal;
+    console.log(goal_info.Duration);
     if (goal_info.Duration.length == 0) {
       var task = new Task({ task: goal_info.Task, duration: goal_info.Duration})
       task.save(function (err) {

@@ -1,67 +1,70 @@
 extends layout
 
 block content
-  h1= title
+	div(id='tyingtitle')
+		h1 #{title}
 
-  
-    div(class="task")
-      each duration, task in tasks 
-        div(id='individualtask')
-         h4 Task
-         input(type='text', name='Task', value='#{task}') 
-         br
-         h4 Task Duration (in days)
-         input(type='text', name='Duration', value='#{duration}')
-         br 
-      button(id="newtask", class="btn", type='newtask') Add task
-    br
-    br
-    
-    div(id='second')
-     div(class="inline", style="display:inline-block")
-     form(id="create_goal", action='/savegoal', method='post', style="display:inline-block")
-      h4 Goal
-      input(type='text', name='Goal', value='#{goal}')  
-      br
-      
-     h4 Daily Activities
-     textarea(id='daily', name='Daily', rows='5') #{Daily}
-     br
-     h4 Start Date
-     select(name='startdateday') 
-       option(value='1') 1
-       option(value='2') 2
-       option(value='3') 3
-       option(value='4') 4
-     select(name='startdatemonth') 
-       option(value='jan') jan
-       option(value='feb') feb
-       option(value='mar') mar
-       option(value='apr') apr   
-     select(name='startdateyear') 
-       option(value='jan') 2013
-       option(value='feb') 2014
-       option(value='mar') 2015
-     br
-     h4 End Date
-     select(name='enddateday') 
-       option(value='1') 1
-       option(value='2') 2
-       option(value='3') 3
-       option(value='4') 4
-     select(name='enddatemonth') 
-       option(value='jan') jan
-       option(value='feb') feb
-       option(value='mar') mar
-       option(value='apr') apr   
-     select(name='enddateyear') 
-       option(value='jan') 2013
-       option(value='feb') 2014
-       option(value='mar') 2015
-     br
-     br
-     input(class="btn btn-large btn-primary", type='submit', value='Submit')
-     form(id="cancel", action='/', method='get', style="display:inline-block; margin-left: -550px")
-       input(class="btn btn-large", type='submit', value='Cancel')
-      
+	div(class="inline", style="display:inline-block")
+		form(id="create_goals", action='/savegoal', method='post', style="display:inline-block")
+			div(id='second')
 
+				h4 Goal
+				input(type='text', name='Goal', value='#{goal}') 
+
+				h4 Daily Activities
+				textarea(id='daily', name='Daily', rows='5') #{Daily}
+				br
+				br
+				h4 Start Date
+				select(name='startdateday') 
+					option(value='01') 1
+					option(value='02') 2
+					option(value='03') 3
+					option(value='04') 4
+				select(name='startdatemonth') 
+					option(value='01') jan
+					option(value='02') feb
+					option(value='03') mar
+					option(value='04') apr 
+					option(value='05') may   
+				select(name='startdateyear') 
+					option(value='2013') 2013
+					option(value='2014') 2014
+					option(value='2015') 2015
+				br
+				h4 End Date
+				select(name='enddateday') 
+					option(value='01') 1
+					option(value='02') 2
+					option(value='03') 3
+					option(value='04') 4
+					option(value='05') 5
+					option(value='06') 6
+					option(value='07') 7
+					option(value='08') 8
+				select(name='enddatemonth') 
+					option(value='01') jan
+					option(value='02') feb
+					option(value='03') mar
+					option(value='04') apr
+					option(value='05') may    
+				select(name='enddateyear') 
+					option(value='2013') 2013
+					option(value='2014') 2014
+					option(value='2015') 2015
+				br
+				br
+				input(id='hello',class="btn btn-primary", type='submit', value='Submit')
+			
+
+			div(class='task2')
+				each duration, task in tasks 
+					div(id='individualtask')
+						h4 Task
+						input(type='text', name='Task', value='#{task}') 
+						br
+						h4 Task Duration(in days)
+						input(type='text', name='Duration', value='#{duration}')
+						br				 
+		//- form(id="cancel", action='/', method='get', style="display:inline-block; margin-left: -550px")
+		//- 	input(class="btn btn-large", type='submit', value='Cancel')
