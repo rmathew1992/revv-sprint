@@ -13,7 +13,7 @@ $(function(){
          .attr("name", "Task")
          .appendTo(".task");
 
-        $("<h4>Duration</h4>")
+        $("<h4>Duration (in days)</h4>")
          .appendTo(".task");
 
         $("<input type='text' value='' />")
