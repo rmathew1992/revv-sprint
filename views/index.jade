@@ -50,8 +50,19 @@ block content
       var events = [];
       
     each info, goal in goals
+      //- initialize total duration and num_tasks to 0
       script(type='text/javascript');
+        var total_duration = 0;
+        var num_tasks = 0;
+      //- sum the tasks' durations for this goal
+      each task in info.tasks
+        script(type='text/javascript');
+          total_duration += parseInt('#{task.duration}');
+          num_tasks += 1;
+      script(type='text/javascript');
+        //- find goal's start and end dates
         var start_day = '#{info.start[0]}';
+        var end_day = '#{info.end[0]}';
         var day = parseInt(start_day);
         //- adds a 0 in front if the day string has < 2 characters
         var day_extra_digit = '';
@@ -60,22 +71,38 @@ block content
         } 
         var start_month = '#{info.start[1]}';
         var start_year = '#{info.start[2]}';
-        console.log(start_day, start_month, start_year)
+        var end_month = '#{info.end[1]}';
+        var end_year = '#{info.end[2]}';
+
+        //- find the buffer time btw end date and start date plus total task duration
+        var start_date = new Date(parseInt(start_year), parseInt(start_month)-1, parseInt(start_day));
+        var end_date = new Date(parseInt(end_year), parseInt(end_month)-1, parseInt(end_day));
+        var millis_to_day_convert = 1000*60*60*24;
+        var start_time = start_date.getTime()/millis_to_day_convert;
+        var end_time = end_date.getTime()/millis_to_day_convert;
+        var buffer = end_time - (start_time+total_duration);
+        var buffer_incr = Math.floor(buffer/(num_tasks-1));
+        console.log("start", start_time, "end", end_time, "buffer", buffer_incr);
+        console.log(parseInt(start_month), parseInt(start_day), parseInt(start_year), end_month, end_year)
+
+      //- populate calendar events list with each goal's tasks
       each task in info.tasks
         script(type='text/javascript');
           var task = '#{task.task}';
           var duration = parseInt('#{task.duration}');
           if (task!='' && task.length > 1) {
             console.log(task, duration);
+            //- NOTE: really long tasks (i.e. 30 days) don't wrap into the next month :(
             events.push({
               title  : task,
-              start  : start_year+'-'+start_month+'-'+start_day,
+              start  : start_year+'-'+start_month+'-'+day_extra_digit+day.toString(),
               end  : start_year+'-'+start_month+'-'+day_extra_digit+(day+duration-1).toString() 
             });
-            //- add a time by including time in start and setting allDay to false
-            //- start  : '2013-04-09 12:30:00',
-            //- allDay : false 
-            day += duration;
+            if (buffer_incr > 0) {
+              day += duration+buffer_incr;
+            } else {
+              day += duration;
+            }
           }
    
     script(type='text/javascript');
