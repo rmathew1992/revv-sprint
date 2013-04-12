@@ -64,12 +64,8 @@ block content
         var start_day = '#{info.start[0]}';
         var end_day = '#{info.end[0]}';
         var day = parseInt(start_day);
-        //- adds a 0 in front if the day string has < 2 characters
-        var day_extra_digit = '';
-        if (day < 10) {
-          day_extra_digit = '0';
-        } 
         var start_month = '#{info.start[1]}';
+        var month = parseInt(start_month);
         var start_year = '#{info.start[2]}';
         var end_month = '#{info.end[1]}';
         var end_year = '#{info.end[2]}';
@@ -82,21 +78,38 @@ block content
         var end_time = end_date.getTime()/millis_to_day_convert;
         var buffer = end_time - (start_time+total_duration);
         var buffer_incr = Math.floor(buffer/(num_tasks-1));
-        console.log("start", start_time, "end", end_time, "buffer", buffer_incr);
-        console.log(parseInt(start_month), parseInt(start_day), parseInt(start_year), end_month, end_year)
+        //- console.log("start", start_time, "end", end_time, "buffer", buffer_incr);
+        //- console.log(parseInt(start_month), parseInt(start_day), parseInt(start_year), end_month, end_year)
 
       //- populate calendar events list with each goal's tasks
       each task in info.tasks
         script(type='text/javascript');
           var task = '#{task.task}';
           var duration = parseInt('#{task.duration}');
+          //- increment month and decrease day by 30 if day > 30
+          if (day > 30) {
+            day = day - 30;
+            month += 1;
+          }
+          //- TODO: increment year and decrease month if month > 12
+          //- adds a 0 in front if the day or month string has < 2 characters
+          var day_extra_digit = '';
+          if (day < 10) {
+            day_extra_digit = '0';
+          } 
+          var month_extra_digit = '';
+          if (month < 10) {
+            month_extra_digit = '0';
+          }
+          
+          //- TODO: enable really long tasks (i.e. duration > 30)
           if (task!='' && task.length > 1) {
-            console.log(task, duration);
+            console.log(task, duration, "month", month_extra_digit+month.toString(), "day", day_extra_digit+day.toString());
             //- NOTE: really long tasks (i.e. 30 days) don't wrap into the next month :(
             events.push({
               title  : task,
-              start  : start_year+'-'+start_month+'-'+day_extra_digit+day.toString(),
-              end  : start_year+'-'+start_month+'-'+day_extra_digit+(day+duration-1).toString() 
+              start  : start_year+'-'+month_extra_digit+month.toString()+'-'+day_extra_digit+day.toString(),
+              end  : start_year+'-'+month_extra_digit+month.toString()+'-'+day_extra_digit+(day+duration-1).toString() 
             });
             if (buffer_incr > 0) {
               day += duration+buffer_incr;

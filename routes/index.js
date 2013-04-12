@@ -116,6 +116,7 @@ exports.presetgoal = function(req, res){
     tasks['Write cover letters'] = '5';
     tasks['Submit online applications'] = '2';
     tasks['Go to a career fair'] = '1';
+    tasks['Interviews'] = '30';
     var Daily = 'Research companies with job openings, follow up with interviewers';
   }
   res.render('editgoal', { goal:goal, tasks:tasks, Daily:Daily, title:'Make a New goal!' });
