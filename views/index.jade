@@ -81,6 +81,10 @@ block content
         //- console.log("start", start_time, "end", end_time, "buffer", buffer_incr);
         //- console.log(parseInt(start_month), parseInt(start_day), parseInt(start_year), end_month, end_year)
 
+        events.push({
+          title  : 'Achieved goal '+'#{info.goal}'+'!',
+          start  : end_year+'-'+end_month+'-'+end_day
+        });
       //- populate calendar events list with each goal's tasks
       each task in info.tasks
         script(type='text/javascript');
